@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+class Employee{
+	int id;
+	String name;
+	int salary;
+	
+	public Employee(int id, String name, int salary) {
+		this.id=id;
+		this.name=name;
+		this.salary=salary;
+	}
+	 public String toString() {
+		 return "id"+" "+id+" sa"+"name"+" "+name+" "+"salary"+" "+salary;
+	 }
+}
+public class Maxsalary {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		ArrayList<Employee>l=new ArrayList<>();
+		l.add(new Employee(1,"ashok",1000));
+		l.add(new Employee(2,"aadhi",2000));
+		l.add(new Employee(3,"ashley",3000));
+		l.add(new Employee(4,"vishnu",4000));
+		l.add(new Employee(5,"prem",5000));
+		l.add(new Employee(6,"kishore",6000));
+	
+		
+      l.stream().sorted((e1,e2)->{if (e1.salary>e2.salary) return 1; return -1;}).limit(5).skip(3).forEach(v->System.out.println(v));
+     
+	}
+
+ }
